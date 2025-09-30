@@ -1,9 +1,10 @@
+```html
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insightify-Chalamandra 🦎</title>
+    <title>Insightify-Salamander 🦎</title>
     <style>
         :root {
             --fire: #FF003C;
@@ -31,7 +32,7 @@
             padding: 40px 20px;
         }
         
-        .salamandra {
+        .salamander {
             font-size: 5rem;
             animation: glow 2s infinite alternate;
             margin-bottom: 20px;
@@ -137,46 +138,46 @@
 </head>
 <body>
     <div class="hero">
-        <div class="salamandra">🦎</div>
-        <h1>Insightify-Chalamandra</h1>
-        <p>Transforma contenido complejo en claridad instantánea</p>
+        <div class="salamander">🦎</div>
+        <h1>Insightify-Salamander</h1>
+        <p>Transform complex content into instant clarity</p>
         <div class="chrome-badge">Chrome Extension Challenge 2025</div>
     </div>
     
     <div class="stats">
         <div class="stat-card">
             <span class="stat-number">-73%</span>
-            <small>Tiempo lectura</small>
+            <small>Reading time</small>
         </div>
         <div class="stat-card">
             <span class="stat-number">+45%</span>
-            <small>Retención</small>
+            <small>Retention</small>
         </div>
     </div>
     
     <div class="demo-box">
-        <h3>📖 Texto Complejo Original:</h3>
+        <h3>📖 Original Complex Text:</h3>
         <p id="complexText" style="opacity: 0.8; margin: 15px 0;">
-            "Los modelos de transformadores han revolucionado el procesamiento del lenguaje natural mediante mecanismos de atención que permiten el procesamiento paralelo de secuencias completas, superando limitaciones de modelos recurrentes tradicionales."
+            "Transformer models have revolutionized natural language processing through attention mechanisms that enable parallel processing of complete sequences, overcoming limitations of traditional recurrent models."
         </p>
         
         <button class="transform-btn" onclick="transformText()">
-            🦎 ACTIVAR TRANSFORMACIÓN
+            🦎 ACTIVATE TRANSFORMATION
         </button>
         
         <div id="insights">
-            <div class="insight">• <strong>Transformadores</strong> mejoran NLP con mecanismos de atención</div>
-            <div class="insight">• Procesamiento <strong>paralelo</strong> más eficiente</div>
-            <div class="insight">• Superan limitaciones de <strong>modelos recurrentes</strong></div>
-            <div class="insight">• Resultados <strong>state-of-the-art</strong> en comprensión</div>
+            <div class="insight">• <strong>Transformers</strong> improve NLP with attention mechanisms</div>
+            <div class="insight">• <strong>Parallel processing</strong> more efficient</div>
+            <div class="insight">• Overcome <strong>recurrent model</strong> limitations</div>
+            <div class="insight">• <strong>State-of-the-art</strong> comprehension results</div>
         </div>
     </div>
 
     <div class="demo-box">
-        <h3>🚀 Próximos Pasos</h3>
-        <p>¡Extensión Chrome en desarrollo! Mientras tanto:</p>
+        <h3>🚀 Next Steps</h3>
+        <p>Chrome extension in development! In the meantime:</p>
         <button class="transform-btn" style="background: linear-gradient(45deg, #9D00FF, #00FFEA);" onclick="showVision()">
-            🔮 VER ROADMAP 2025
+            🔮 VIEW 2025 ROADMAP
         </button>
     </div>
     
@@ -185,34 +186,34 @@
             const insights = document.querySelectorAll('.insight');
             const button = document.querySelector('.transform-btn');
             
-            // Efecto de transformación
-            button.innerHTML = '✨ TRANSFORMANDO...';
+            // Transformation effect
+            button.innerHTML = '✨ TRANSFORMING...';
             button.style.background = 'linear-gradient(45deg, #FF6600, #39FF14)';
             button.disabled = true;
             
-            // Efecto de sonido táctil (vibración)
+            // Tactile sound effect (vibration)
             if (navigator.vibrate) {
                 navigator.vibrate(100);
             }
             
             setTimeout(() => {
-                // Revelar insights con animación
+                // Reveal insights with animation
                 insights.forEach((insight, index) => {
                     setTimeout(() => {
                         insight.style.display = 'block';
                     }, index * 400);
                 });
                 
-                button.innerHTML = '✅ TRANSFORMACIÓN COMPLETA';
+                button.innerHTML = '✅ TRANSFORMATION COMPLETE';
                 button.style.background = 'var(--neon)';
                 
-                // Efecto de confeti visual
+                // Visual confetti effect
                 createConfetti();
             }, 1500);
         }
         
         function showVision() {
-            alert('🚀 2025 Roadmap:\n\nQ1: Lanzamiento Chrome Web Store\nQ2: App Móvil nativa\nQ3: 10,000 usuarios\nQ4: API empresarial');
+            alert('🚀 2025 Roadmap:\n\nQ1: Chrome Web Store Launch\nQ2: Native Mobile App\nQ3: 10,000 users\nQ4: Enterprise API');
         }
         
         function createConfetti() {
@@ -233,7 +234,7 @@
                 }, i * 100);
             }
             
-            // Añadir estilo de animación
+            // Add animation style
             const style = document.createElement('style');
             style.textContent = `
                 @keyframes fall {
@@ -243,10 +244,11 @@
             document.head.appendChild(style);
         }
         
-        // Efecto al cargar la página
+        // Page load effect
         window.addEventListener('load', () => {
-            document.querySelector('.salamandra').style.animation = 'glow 2s infinite alternate';
+            document.querySelector('.salamander').style.animation = 'glow 2s infinite alternate';
         });
     </script>
 </body>
 </html>
+```
