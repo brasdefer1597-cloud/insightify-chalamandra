@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insightify-Chalamandra 🦎</title>
+    <style>
+        :root {
+            --fire: #FF003C;
+            --neon: #39FF14;
+            --dark: #0a0a0a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--dark);
+            color: white;
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .salamandra {
+            font-size: 5rem;
+            animation: glow 2s infinite alternate;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        @keyframes glow {
+            0% { 
+                transform: scale(1);
+                text-shadow: 0 0 10px var(--fire);
+            }
+            100% { 
+                transform: scale(1.1);
+                text-shadow: 0 0 30px var(--neon);
+            }
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, var(--fire), var(--neon));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: bold;
+        }
+        
+        .demo-box {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 25px 0;
+            border: 2px solid var(--fire);
+            box-shadow: 0 0 20px rgba(255,0,60,0.3);
+        }
+        
+        .transform-btn {
+            background: linear-gradient(45deg, var(--fire), var(--neon));
+            color: black;
+            border: none;
+            padding: 18px 35px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin: 20px 0;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            transition: transform 0.3s ease;
+        }
+        
+        .transform-btn:active {
+            transform: scale(0.95);
+        }
+        
+        .insight {
+            background: rgba(57,255,20,0.1);
+            padding: 18px;
+            margin: 12px 0;
+            border-radius: 12px;
+            border-left: 5px solid var(--neon);
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .stat-card {
+            background: rgba(255,255,255,0.08);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--neon);
+            display: block;
+        }
+        
+        .chrome-badge {
+            background: linear-gradient(45deg, #4285F4, #34A853, #FBBC05, #EA4335);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            margin: 20px 0;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="salamandra">🦎</div>
+        <h1>Insightify-Chalamandra</h1>
+        <p>Transforma contenido complejo en claridad instantánea</p>
+        <div class="chrome-badge">Chrome Extension Challenge 2025</div>
+    </div>
+    
+    <div class="stats">
+        <div class="stat-card">
+            <span class="stat-number">-73%</span>
+            <small>Tiempo lectura</small>
+        </div>
+        <div class="stat-card">
+            <span class="stat-number">+45%</span>
+            <small>Retención</small>
+        </div>
+    </div>
+    
+    <div class="demo-box">
+        <h3>📖 Texto Complejo Original:</h3>
+        <p id="complexText" style="opacity: 0.8; margin: 15px 0;">
+            "Los modelos de transformadores han revolucionado el procesamiento del lenguaje natural mediante mecanismos de atención que permiten el procesamiento paralelo de secuencias completas, superando limitaciones de modelos recurrentes tradicionales."
+        </p>
+        
+        <button class="transform-btn" onclick="transformText()">
+            🦎 ACTIVAR TRANSFORMACIÓN
+        </button>
+        
+        <div id="insights">
+            <div class="insight">• <strong>Transformadores</strong> mejoran NLP con mecanismos de atención</div>
+            <div class="insight">• Procesamiento <strong>paralelo</strong> más eficiente</div>
+            <div class="insight">• Superan limitaciones de <strong>modelos recurrentes</strong></div>
+            <div class="insight">• Resultados <strong>state-of-the-art</strong> en comprensión</div>
+        </div>
+    </div>
+
+    <div class="demo-box">
+        <h3>🚀 Próximos Pasos</h3>
+        <p>¡Extensión Chrome en desarrollo! Mientras tanto:</p>
+        <button class="transform-btn" style="background: linear-gradient(45deg, #9D00FF, #00FFEA);" onclick="showVision()">
+            🔮 VER ROADMAP 2025
+        </button>
+    </div>
+    
+    <script>
+        function transformText() {
+            const insights = document.querySelectorAll('.insight');
+            const button = document.querySelector('.transform-btn');
+            
+            // Efecto de transformación
+            button.innerHTML = '✨ TRANSFORMANDO...';
+            button.style.background = 'linear-gradient(45deg, #FF6600, #39FF14)';
+            button.disabled = true;
+            
+            // Efecto de sonido táctil (vibración)
+            if (navigator.vibrate) {
+                navigator.vibrate(100);
+            }
+            
+            setTimeout(() => {
+                // Revelar insights con animación
+                insights.forEach((insight, index) => {
+                    setTimeout(() => {
+                        insight.style.display = 'block';
+                    }, index * 400);
+                });
+                
+                button.innerHTML = '✅ TRANSFORMACIÓN COMPLETA';
+                button.style.background = 'var(--neon)';
+                
+                // Efecto de confeti visual
+                createConfetti();
+            }, 1500);
+        }
+        
+        function showVision() {
+            alert('🚀 2025 Roadmap:\n\nQ1: Lanzamiento Chrome Web Store\nQ2: App Móvil nativa\nQ3: 10,000 usuarios\nQ4: API empresarial');
+        }
+        
+        function createConfetti() {
+            const colors = ['#FF003C', '#39FF14', '#00FFEA', '#9D00FF'];
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.innerHTML = '✨';
+                    confetti.style.position = 'fixed';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.top = '-50px';
+                    confetti.style.fontSize = '1.5rem';
+                    confetti.style.color = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animation = `fall ${Math.random() * 2 + 1}s linear forwards`;
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => confetti.remove(), 2000);
+                }, i * 100);
+            }
+            
+            // Añadir estilo de animación
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes fall {
+                    to { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+        
+        // Efecto al cargar la página
+        window.addEventListener('load', () => {
+            document.querySelector('.salamandra').style.animation = 'glow 2s infinite alternate';
+        });
+    </script>
+</body>
+</html>
