@@ -1,4 +1,4 @@
-# 🦎 Insightify Salamander
+# 🦎 Insightify Chalamandra 
 
 > **Transform complexity into clarity with Chrome's Built-in AI**
 
@@ -43,5 +43,5 @@ A sophisticated Chrome extension that leverages Google's built-in AI APIs to ana
 ### Method 1: Development Installation
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/insightify-chalamandra.git
+   git clone https://github.com/brasdefer1597-cloud/insightify-chalamandra.git
    cd insightify-chalamandra
