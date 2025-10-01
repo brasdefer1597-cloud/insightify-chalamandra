@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insightify Salamander</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="popup-container">
+        <!-- Header Section -->
+        <div class="popup-header">
+            <div class="header-background"></div>
+            <div class="header-content">
+                <div class="logo-animation">
+                    <div class="logo">🦎</div>
+                    <div class="logo-glow"></div>
+                </div>
+                <div class="title-section">
+                    <h1>Insightify</h1>
+                    <div class="subtitle">
+                        <span class="salamander-text">Salamander</span>
+                        <span class="ai-badge">Chrome AI</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="popup-content">
+            <!-- Status Indicator -->
+            <div class="status-section">
+                <div class="status-indicator">
+                    <div class="status-dot active"></div>
+                    <span class="status-text">AI Ready</span>
+                </div>
+                <div class="api-status">
+                    <span class="api-tag summarizer">Summarizer</span>
+                    <span class="api-tag prompt">Prompt</span>
+                    <span class="api-tag translator">Translator</span>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="actions-section">
+                <div class="action-card primary-action" id="analyze-action">
+                    <div class="action-icon">🔍</div>
+                    <div class="action-content">
+                        <h3>Analyze Page</h3>
+                        <p>Extract key insights using Chrome AI</p>
+                    </div>
+                    <div class="action-arrow">→</div>
+                </div>
+
+                <div class="action-grid">
+                    <div class="action-item" id="quick-insights">
+                        <div class="item-icon">⚡</div>
+                        <span>Quick Insights</span>
+                    </div>
+                    <div class="action-item" id="multimodal-analysis">
+                        <div class="item-icon">🖼️</div>
+                        <span>Multimodal</span>
+                    </div>
+                    <div class="action-item" id="translate-content">
+                        <div class="item-icon">🌐</div>
+                        <span>Translate</span>
+                    </div>
+                    <div class="action-item" id="open-demo">
+                        <div class="item-icon">🎮</div>
+                        <span>Demo</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="activity-section">
+                <div class="section-header">
+                    <h4>AI Capabilities</h4>
+                    <div class="section-badge">Powered by Chrome</div>
+                </div>
+                <div class="capabilities-list">
+                    <div class="capability-item">
+                        <div class="capability-icon">📄</div>
+                        <div class="capability-info">
+                            <strong>Summarizer API</strong>
+                            <small>Content analysis & key points</small>
+                        </div>
+                    </div>
+                    <div class="capability-item">
+                        <div class="capability-icon">💭</div>
+                        <div class="capability-info">
+                            <strong>Prompt API</strong>
+                            <small>Multimodal processing</small>
+                        </div>
+                    </div>
+                    <div class="capability-item">
+                        <div class="capability-icon">🌐</div>
+                        <div class="capability-info">
+                            <strong>Translator API</strong>
+                            <small>70+ languages</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="popup-footer">
+            <div class="footer-content">
+                <div class="challenge-badge">
+                    <span>Google Chrome AI Challenge 2025</span>
+                </div>
+                <div class="footer-links">
+                    <button class="footer-btn" id="settings-btn">⚙️</button>
+                    <button class="footer-btn" id="info-btn">ℹ️</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
