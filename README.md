@@ -1,5 +1,3 @@
-
-```markdown
 # 🦎 Insightify Chalamandra - Google Chrome AI Challenge 2025  
 > **From Information Chaos to Clarity** - Privacy-First AI Content Transformation
 
