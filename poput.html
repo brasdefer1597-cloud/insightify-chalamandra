@@ -1,123 +1,247 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insightify Salamander</title>
-    <link rel="stylesheet" href="popup.css">
+  <meta charset="utf-8">
+  <style>
+    :root {
+      --primary-green: #4CAF50;
+      --primary-orange: #FF9800;
+      --dark-bg: #1a1a1a;
+      --text-light: #ffffff;
+      --text-muted: rgba(255,255,255,0.8);
+    }
+
+    body {
+      width: 350px;
+      padding: 20px;
+      background: linear-gradient(135deg, var(--primary-green), var(--primary-orange));
+      color: var(--text-light);
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      margin: 0;
+      min-height: 400px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Efecto de fondo animado */
+    body::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+      background-size: 20px 20px;
+      animation: float 20s infinite linear;
+      z-index: 0;
+    }
+
+    @keyframes float {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      100% { transform: translate(-20px, -20px) rotate(360deg); }
+    }
+
+    /* Header Styles - MEJORADO */
+    .header {
+      text-align: center;
+      margin-bottom: 25px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .salamander-icon {
+      font-size: 2.5em;
+      margin-bottom: 12px;
+      display: block;
+      animation: salamanderPulse 3s ease-in-out infinite;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+    }
+
+    @keyframes salamanderPulse {
+      0%, 100% { 
+        transform: scale(1) rotate(0deg); 
+      }
+      25% { 
+        transform: scale(1.1) rotate(-5deg); 
+      }
+      75% { 
+        transform: scale(1.1) rotate(5deg); 
+      }
+    }
+
+    .header h2 {
+      font-size: 1.6em;
+      font-weight: 700;
+      margin-bottom: 8px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      background: linear-gradient(135deg, #fff, #e0e0e0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .header p {
+      font-size: 0.95em;
+      opacity: 0.9;
+      font-weight: 500;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    }
+
+    /* Button Styles - MEJORADO */
+    .btn {
+      background: rgba(255,255,255,0.15);
+      border: 2px solid rgba(255,255,255,0.3);
+      color: white;
+      padding: 14px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      width: 100%;
+      margin: 10px 0;
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+      z-index: 1;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.6s;
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    .btn:hover {
+      background: rgba(255,255,255,0.25);
+      border-color: rgba(255,255,255,0.5);
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+
+    .btn:active {
+      transform: translateY(-1px) scale(1);
+      transition: all 0.1s ease;
+    }
+
+    /* Estados específicos de botones */
+    #extractBtn {
+      border-left: 4px solid #4CAF50;
+    }
+
+    #summarizeBtn {
+      border-left: 4px solid #FF9800;
+    }
+
+    #demoBtn {
+      border-left: 4px solid #2196F3;
+    }
+
+    /* Status Styles - MEJORADO */
+    .status {
+      text-align: center;
+      margin: 20px 0;
+      padding: 15px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 15px;
+      font-size: 0.9em;
+      border: 1px solid rgba(255,255,255,0.2);
+      backdrop-filter: blur(5px);
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .status::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary-green), var(--primary-orange));
+      border-radius: 15px 15px 0 0;
+    }
+
+    /* Estados dinámicos para el status */
+    .status.thinking {
+      background: rgba(255, 152, 0, 0.15);
+      border-color: rgba(255, 152, 0, 0.3);
+    }
+
+    .status.success {
+      background: rgba(76, 175, 80, 0.15);
+      border-color: rgba(76, 175, 80, 0.3);
+    }
+
+    .status.error {
+      background: rgba(244, 67, 54, 0.15);
+      border-color: rgba(244, 67, 54, 0.3);
+    }
+
+    /* Efectos de partículas para interacción */
+    .particle {
+      position: absolute;
+      pointer-events: none;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.6);
+      animation: particle-float 1s ease-out forwards;
+    }
+
+    @keyframes particle-float {
+      0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(var(--tx), var(--ty)) scale(0);
+        opacity: 0;
+      }
+    }
+
+    /* Responsive */
+    @media (max-height: 500px) {
+      body {
+        min-height: 300px;
+      }
+      
+      .header {
+        margin-bottom: 15px;
+      }
+      
+      .btn {
+        padding: 10px 15px;
+        margin: 6px 0;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="popup-container">
-        <!-- Header Section -->
-        <div class="popup-header">
-            <div class="header-background"></div>
-            <div class="header-content">
-                <div class="logo-animation">
-                    <div class="logo">🦎</div>
-                    <div class="logo-glow"></div>
-                </div>
-                <div class="title-section">
-                    <h1>Insightify</h1>
-                    <div class="subtitle">
-                        <span class="salamander-text">Salamander</span>
-                        <span class="ai-badge">Chrome AI</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="header">
+    <div class="salamander-icon">🦎</div>
+    <h2>Insightify Chalamandra</h2>
+    <p>Transform content into clarity</p>
+  </div>
+  
+  <button class="btn" id="extractBtn">Extract Page Content</button>
+  <button class="btn" id="summarizeBtn">Generate AI Summary</button>
+  <button class="btn" id="demoBtn">View Interactive Demo</button>
+  
+  <div class="status" id="status">
+    Ready to transform content...
+  </div>
 
-        <!-- Main Content -->
-        <div class="popup-content">
-            <!-- Status Indicator -->
-            <div class="status-section">
-                <div class="status-indicator">
-                    <div class="status-dot active"></div>
-                    <span class="status-text">AI Ready</span>
-                </div>
-                <div class="api-status">
-                    <span class="api-tag summarizer">Summarizer</span>
-                    <span class="api-tag prompt">Prompt</span>
-                    <span class="api-tag translator">Translator</span>
-                </div>
-            </div>
-
-            <!-- Quick Actions -->
-            <div class="actions-section">
-                <div class="action-card primary-action" id="analyze-action">
-                    <div class="action-icon">🔍</div>
-                    <div class="action-content">
-                        <h3>Analyze Page</h3>
-                        <p>Extract key insights using Chrome AI</p>
-                    </div>
-                    <div class="action-arrow">→</div>
-                </div>
-
-                <div class="action-grid">
-                    <div class="action-item" id="quick-insights">
-                        <div class="item-icon">⚡</div>
-                        <span>Quick Insights</span>
-                    </div>
-                    <div class="action-item" id="multimodal-analysis">
-                        <div class="item-icon">🖼️</div>
-                        <span>Multimodal</span>
-                    </div>
-                    <div class="action-item" id="translate-content">
-                        <div class="item-icon">🌐</div>
-                        <span>Translate</span>
-                    </div>
-                    <div class="action-item" id="open-demo">
-                        <div class="item-icon">🎮</div>
-                        <span>Demo</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Recent Activity -->
-            <div class="activity-section">
-                <div class="section-header">
-                    <h4>AI Capabilities</h4>
-                    <div class="section-badge">Powered by Chrome</div>
-                </div>
-                <div class="capabilities-list">
-                    <div class="capability-item">
-                        <div class="capability-icon">📄</div>
-                        <div class="capability-info">
-                            <strong>Summarizer API</strong>
-                            <small>Content analysis & key points</small>
-                        </div>
-                    </div>
-                    <div class="capability-item">
-                        <div class="capability-icon">💭</div>
-                        <div class="capability-info">
-                            <strong>Prompt API</strong>
-                            <small>Multimodal processing</small>
-                        </div>
-                    </div>
-                    <div class="capability-item">
-                        <div class="capability-icon">🌐</div>
-                        <div class="capability-info">
-                            <strong>Translator API</strong>
-                            <small>70+ languages</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Footer -->
-        <div class="popup-footer">
-            <div class="footer-content">
-                <div class="challenge-badge">
-                    <span>Google Chrome AI Challenge 2025</span>
-                </div>
-                <div class="footer-links">
-                    <button class="footer-btn" id="settings-btn">⚙️</button>
-                    <button class="footer-btn" id="info-btn">ℹ️</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="popup.js"></script>
+  <script src="popup.js"></script>
 </body>
 </html>
