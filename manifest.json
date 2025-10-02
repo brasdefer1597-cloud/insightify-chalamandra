@@ -1,56 +1,29 @@
 {
   "manifest_version": 3,
-  "name": "Insightify Salamander - AI Content Clarifier",
-  "version": "1.0.0",
-  "description": "Transform complex web content into clear insights using Chrome's built-in AI APIs including Summarizer, Prompt, and Translator APIs",
-  "permissions": [
-    "activeTab",
-    "scripting",
-    "storage"
-  ],
-  "host_permissions": [
-    "https://*/*",
-    "http://*/*"
-  ],
+  "name": "Insightify Chalamandra",
+  "version": "1.0",
+  "description": "Transform complex content into clear insights with local AI",
+  "permissions": ["activeTab", "storage"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "assets/icon-16.png",
+      "48": "assets/icon-48.png", 
+      "128": "assets/icon-128.png"
+    }
+  },
   "background": {
-    "service_worker": "background.js",
-    "type": "module"
+    "service_worker": "background.js"
   },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["content-script.js"],
-      "css": ["content-style.css"],
-      "run_at": "document_idle"
+      "js": ["content-script.js"]
     }
   ],
-  "action": {
-    "default_popup": "popup.html",
-    "default_title": "Insightify Salamander - Analyze this page",
-    "default_icon": {
-      "16": "assets/icon-16.png",
-      "32": "assets/icon-32.png",
-      "48": "assets/icon-48.png",
-      "128": "assets/icon-128.png"
-    }
-  },
   "icons": {
     "16": "assets/icon-16.png",
-    "32": "assets/icon-32.png",
     "48": "assets/icon-48.png",
     "128": "assets/icon-128.png"
-  },
-  "web_accessible_resources": [
-    {
-      "resources": [
-        "demo-simulator.html",
-        "assets/*",
-        "styles/*"
-      ],
-      "matches": ["<all_urls>"]
-    }
-  ],
-  "content_security_policy": {
-    "extension_pages": "script-src 'self'; object-src 'self'"
   }
 }
